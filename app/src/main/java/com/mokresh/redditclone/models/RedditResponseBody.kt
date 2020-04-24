@@ -2,7 +2,6 @@ package com.mokresh.redditclone.models
 
 import com.google.gson.annotations.SerializedName
 
-
-data class Listing<T>(
-    @SerializedName("children") val children: T
+data class RedditResponseBody<T>(
+    @SerializedName("data") val listing: T
 )
