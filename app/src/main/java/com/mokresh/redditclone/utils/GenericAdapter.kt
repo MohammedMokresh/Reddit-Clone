@@ -10,9 +10,18 @@ import com.mokresh.redditclone.R
 import com.mokresh.redditclone.ui.ListingViewHolder
 
 
-class GenericAdapter<T>(private val context: Context, private val items: List<T>,private val fragmentManager: FragmentManager) :
+class GenericAdapter<T>(
+    private val context: Context,
+    private val items: List<T>,
+    private val fragmentManager: FragmentManager
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+
+    private lateinit var listener: ListingViewHolder.ListingItemButtonsListener
+    fun setListingClickListener(listener: ListingViewHolder.ListingItemButtonsListener) {
+        this.listener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when {
@@ -23,7 +32,8 @@ class GenericAdapter<T>(private val context: Context, private val items: List<T>
                     parent,
                     false
                 )
-            ,fragmentManager)
+                , fragmentManager,listener
+            )
         }
 
     }

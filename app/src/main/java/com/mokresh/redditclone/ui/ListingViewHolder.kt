@@ -11,7 +11,8 @@ import com.mokresh.redditclone.utils.ImageUtil
 
 class ListingViewHolder(
     private val itemBinding: ListingItemBinding,
-    private val fragmentManager: FragmentManager
+    private val fragmentManager: FragmentManager,
+    private val listener: ListingItemButtonsListener
 ) :
     RecyclerView.ViewHolder(itemBinding.root), GenericAdapter.Binder<Children> {
 
@@ -31,7 +32,18 @@ class ListingViewHolder(
             itemBinding.itemName.text = redditData.displayName.orEmpty()
             itemBinding.itemDescription.text = redditData.publicDescription.orEmpty()
 
-            itemBinding.root.setOnClickListener { view ->
+            itemBinding.upVoteButton.text = redditData.upVotes.toString()
+            itemBinding.downVoteButton.text = redditData.downVotes.toString()
+
+            itemBinding.downVoteButton.setOnClickListener {
+                if (redditData.downVotes > 0)
+                    listener.downVoteButtonClickListener(
+                        data.listingId
+                    )
+            }
+            itemBinding.upVoteButton.setOnClickListener { listener.upVoteButtonClickListener(data.listingId) }
+
+            itemBinding.root.setOnClickListener {
                 FragmentSwitcher.addFragment(
                     fragmentManager
                     , R.id.details_FrameLayout, DetailsFragment.newInstance(data.listingId)
@@ -40,5 +52,9 @@ class ListingViewHolder(
         }
     }
 
+    interface ListingItemButtonsListener {
+        fun upVoteButtonClickListener(listingId: Int)
+        fun downVoteButtonClickListener(listingId: Int)
+    }
 
 }

@@ -23,4 +23,12 @@ interface ListingDao {
     @Query("DELETE FROM listing")
     fun deleteListing(): Completable
 
+
+    @Query("UPDATE listing SET upVotes = upVotes+1 WHERE listingId = :listingId")
+    fun increaseUpVotes(listingId: Int): Completable
+
+
+    @Query("UPDATE listing SET downVotes = downVotes-1 WHERE listingId = :listingId")
+    fun decreaseDownVotes(listingId: Int): Completable
+
 }

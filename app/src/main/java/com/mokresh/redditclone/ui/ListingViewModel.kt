@@ -18,6 +18,14 @@ class ListingViewModel(
         return listingRepository.getListingById(listingId)
     }
 
+    fun upVote(listingId: Int) {
+        listingRepository.upVote(listingId)
+    }
+
+    fun downVote(listingId: Int) {
+        listingRepository.downVote(listingId)
+    }
+
     fun insertListingInLocal() {
         return listingRepository.insertListingInLocal()
     }

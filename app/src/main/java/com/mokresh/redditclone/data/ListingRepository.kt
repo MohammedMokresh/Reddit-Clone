@@ -18,6 +18,9 @@ interface ListingRepository {
     fun getListing(): LiveData<List<Children>>
     fun getListingById(listingId: Int): LiveData<Children>
 
+    fun upVote(listingId: Int)
+    fun downVote(listingId: Int)
+
 
     open class ListingRepositoryImpl(
         private val service: ApiServices,
@@ -48,6 +51,15 @@ interface ListingRepository {
 
         override fun getListingById(listingId: Int): LiveData<Children> {
             return dao.getListingById(listingId)
+        }
+
+        override fun upVote(listingId: Int) {
+            dao.increaseUpVotes(listingId).subscribeOn(Schedulers.io()).subscribe()
+
+        }
+
+        override fun downVote(listingId: Int) {
+            dao.decreaseDownVotes(listingId).subscribeOn(Schedulers.io()).subscribe()
         }
 
 
