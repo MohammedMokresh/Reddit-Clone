@@ -1,5 +1,6 @@
 package com.mokresh.redditclone.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.mokresh.redditclone.app.ApiServices
 import com.mokresh.redditclone.models.Children
@@ -27,10 +28,17 @@ interface ListingRepository {
         override fun insertListingInLocal() {
             getListingFromAPI()
                 .subscribeOn(Schedulers.io())
+
                 .flatMapCompletable {
                     dao.deleteListing()
                         .andThen(insertListing(it))
-                }.subscribeBy().addTo(compositeDisposable)
+                }
+
+                .subscribeBy(
+                    onError = {
+                        Log.d("exception", it.message)
+                    }
+                ).addTo(compositeDisposable)
         }
 
         override fun getListing(): LiveData<List<Children>> {
