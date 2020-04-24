@@ -14,6 +14,10 @@ class ListingViewModel(
         return listingRepository.getListing()
     }
 
+    fun getListingById(listingId: Int): LiveData<Children> {
+        return listingRepository.getListingById(listingId)
+    }
+
     fun insertListingInLocal() {
         return listingRepository.insertListingInLocal()
     }

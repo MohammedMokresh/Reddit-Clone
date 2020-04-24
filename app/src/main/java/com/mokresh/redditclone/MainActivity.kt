@@ -19,14 +19,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         initAdapter()
+        binding.topicsSwipeRefreshLayout.setOnRefreshListener { viewModel.insertListingInLocal() }
     }
 
     private fun initAdapter() {
+        binding.topicsSwipeRefreshLayout.isRefreshing = true
         viewModel.insertListingInLocal()
         viewModel.getListing().observe(this, Observer {
             binding.topicsRecyclerView.apply {
                 layoutManager = LinearLayoutManager(applicationContext)
-                adapter = GenericAdapter(applicationContext, it)
+                adapter = GenericAdapter(applicationContext, it, supportFragmentManager)
+                binding.topicsSwipeRefreshLayout.isRefreshing = false
             }
         })
 

@@ -4,12 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mokresh.redditclone.R
 import com.mokresh.redditclone.ui.ListingViewHolder
 
 
-class GenericAdapter<T>(private val context: Context, private val items: List<T>) :
+class GenericAdapter<T>(private val context: Context, private val items: List<T>,private val fragmentManager: FragmentManager) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -22,7 +23,7 @@ class GenericAdapter<T>(private val context: Context, private val items: List<T>
                     parent,
                     false
                 )
-            )
+            ,fragmentManager)
         }
 
     }

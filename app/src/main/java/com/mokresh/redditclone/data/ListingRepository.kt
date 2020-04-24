@@ -16,6 +16,7 @@ interface ListingRepository {
     fun cleared()
     fun insertListingInLocal()
     fun getListing(): LiveData<List<Children>>
+    fun getListingById(listingId: Int): LiveData<Children>
 
 
     open class ListingRepositoryImpl(
@@ -43,6 +44,10 @@ interface ListingRepository {
 
         override fun getListing(): LiveData<List<Children>> {
             return dao.getListing()
+        }
+
+        override fun getListingById(listingId: Int): LiveData<Children> {
+            return dao.getListingById(listingId)
         }
 
 

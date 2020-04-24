@@ -12,6 +12,10 @@ interface ListingDao {
     @Query("SELECT * FROM listing ORDER BY upVotes DESC")
     fun getListing(): LiveData<List<Children>>
 
+    @Query("SELECT * FROM listing WHERE listingId ==:listingId")
+    fun getListingById(listingId: Int): LiveData<Children>
+
+
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertListing(list: List<Children>): Completable
