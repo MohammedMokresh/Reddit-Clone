@@ -4,6 +4,7 @@ import androidx.annotation.Nullable
 import androidx.recyclerview.widget.DiffUtil
 import com.mokresh.redditclone.models.Children
 
+// diff callback to notify the recyclerview with the changes
 class ChildrenDiffCallback(
     private val oldList: List<Children>,
     private val newList: List<Children>

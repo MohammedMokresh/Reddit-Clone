@@ -9,7 +9,7 @@ import com.mokresh.redditclone.models.Children
 
 @Database(
     entities = [Children::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 

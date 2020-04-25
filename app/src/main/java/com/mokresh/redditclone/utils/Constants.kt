@@ -8,5 +8,4 @@ object Constants {
     const val QUERY_PAGINATE_AFTER = "after"
     const val QUERY_LIMIT = "limit"
 
-
 }

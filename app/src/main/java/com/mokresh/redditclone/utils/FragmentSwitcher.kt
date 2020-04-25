@@ -8,6 +8,7 @@ import com.mokresh.redditclone.R
 
 object FragmentSwitcher {
 
+    // add new fragment with animation
     fun addFragment(
         fragmentManager: FragmentManager,
         @IdRes containerID: Int,
@@ -26,6 +27,7 @@ object FragmentSwitcher {
         fragmentTransaction.commit()
     }
 
+    // close any fragment with animation
     fun closeFragment(fragmentManager: FragmentManager, fragment: Fragment) {
         val trans = fragmentManager.beginTransaction()
         trans.setCustomAnimations(

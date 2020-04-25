@@ -29,6 +29,7 @@ interface ListingRepository {
 
         private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
+        // get the data from API and insert it in local DB
         override fun insertListingInLocal() {
             getListingFromAPI()
                 .subscribeOn(Schedulers.io())
@@ -45,28 +46,31 @@ interface ListingRepository {
                 ).addTo(compositeDisposable)
         }
 
+        // get the data from single source by getting it from Room DB
         override fun getListing(): LiveData<List<Children>> {
             return dao.getListing()
         }
 
+        // get data by id
         override fun getListingById(listingId: Int): LiveData<Children> {
             return dao.getListingById(listingId)
         }
 
+        // increase the upvotes in local DB
         override fun upVote(listingId: Int) {
             dao.increaseUpVotes(listingId).subscribeOn(Schedulers.io()).subscribe()
 
         }
-
+        // decrease the downv votes in local db
         override fun downVote(listingId: Int) {
             dao.decreaseDownVotes(listingId).subscribeOn(Schedulers.io()).subscribe()
         }
 
-
+        // clear the  compositeDisposable after the view model cleared
         override fun cleared() {
             compositeDisposable.clear()
         }
-
+        // to insert data when user add new topic
         override fun insertListing(children: Children) {
             dao.insertListing(children).subscribeOn(Schedulers.io()).subscribe()
         }

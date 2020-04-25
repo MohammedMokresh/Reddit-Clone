@@ -29,7 +29,7 @@ interface ApiServices {
                 .map { it.listing.children }
         }
 
-
+        // interface to define the API services
         interface NetworkCalls {
 
             @GET(Constants.QUERY_REDDITS)

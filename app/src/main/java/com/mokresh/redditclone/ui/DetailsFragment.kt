@@ -56,6 +56,7 @@ class DetailsFragment : Fragment() {
         if (arguments != null) {
             val listingId = arguments?.getInt("listing_id")
 
+            // get topic details from local DB
             if (listingId != null) {
                 listingViewModel.getListingById(listingId).observe(viewLifecycleOwner, Observer {
                     if (it != null) {

@@ -16,6 +16,7 @@ open class App : Application() {
         initializeInjector()
     }
 
+    //  initialize koin
     open fun initializeInjector() {
         startKoin {
             // declare used Android context

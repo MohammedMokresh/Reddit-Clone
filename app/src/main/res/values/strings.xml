@@ -11,4 +11,5 @@
     <string name="clear_draft">Clear Draft</string>
     <string name="cant_be_blank">Topic cannot be blank.</string>
     <string name="keep_editing">Keep Editing</string>
+    <string name="new_topic_added">New Topic Added</string>
 </resources>

@@ -1,9 +1,9 @@
-package com.mokresh.redditclone.utils
+package com.mokresh.redditclone.dialogs
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
-import com.mokresh.redditclone.ui.AddTopicBottomSheetFragment
-import com.mokresh.redditclone.ui.DraftDialogFragment
+import com.mokresh.redditclone.dialogs.AddTopicBottomSheetFragment
+import com.mokresh.redditclone.dialogs.DraftDialogFragment
 
 object DialogUtil {
 
@@ -13,7 +13,8 @@ object DialogUtil {
     ) {
         if (fragmentManager == null) return
         try {
-            val fragment = AddTopicBottomSheetFragment()
+            val fragment =
+                AddTopicBottomSheetFragment()
             fragment.setAddTopicClickListener(addTopicClickListener)
             val args = Bundle()
             fragment.arguments = args

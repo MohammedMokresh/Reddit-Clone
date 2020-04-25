@@ -74,6 +74,7 @@ class ListingAdapter(
         }
     }
 
+    // to refresh the recyclerview data
     fun setData(newChildren: List<Children>) {
         val diffCallback = ChildrenDiffCallback(childrenList, newChildren)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
@@ -92,6 +93,7 @@ class ListingAdapter(
         val binding: ListingItemBinding = itemBinding
     }
 
+    // create this listener to use in inside the activity when the button inside the recyclerview item clicked
     interface ListingItemButtonsListener {
         fun upVoteButtonClickListener(listingId: Int, position: Int)
         fun downVoteButtonClickListener(listingId: Int, position: Int)

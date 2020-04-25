@@ -27,6 +27,7 @@ data class RedditData(
     @ColumnInfo(name = "public_description") @SerializedName("public_description")
     val publicDescription: String? = null,
 
+    // due to lack of up vote and down vote information , generate random number for upvote and downvote
     @ColumnInfo(name = "upVotes") val upVotes: Int = Random().nextInt(100) + 40,
     @ColumnInfo(name = "downVotes") val downVotes: Int = Random().nextInt(40) + 20
 

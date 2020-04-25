@@ -1,4 +1,4 @@
-package com.mokresh.redditclone.ui
+package com.mokresh.redditclone.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater

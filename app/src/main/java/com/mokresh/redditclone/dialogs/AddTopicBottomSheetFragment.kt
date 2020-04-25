@@ -1,4 +1,4 @@
-package com.mokresh.redditclone.ui
+package com.mokresh.redditclone.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mokresh.redditclone.R
 import com.mokresh.redditclone.databinding.FragmentAddTopicBottomSheetBinding
-import com.mokresh.redditclone.utils.DialogUtil
 
 
 /**

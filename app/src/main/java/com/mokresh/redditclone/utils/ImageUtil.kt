@@ -8,6 +8,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 object ImageUtil {
 
+    // to render the image and show it using Glide
     fun renderImage(photoUrl: String?, imageView: ImageView, placeholder: Int, context: Context) {
         if (photoUrl == "" || photoUrl == null) {
             Glide.with(context).load(placeholder).fitCenter().centerCrop()
@@ -18,6 +19,5 @@ object ImageUtil {
         }
 
     }
-
 
 }
