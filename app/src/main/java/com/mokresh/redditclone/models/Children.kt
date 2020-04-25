@@ -11,7 +11,14 @@ import com.google.gson.annotations.SerializedName
 )
 data class Children(
     @PrimaryKey(autoGenerate = true)
-    val listingId: Int,
+    val listingId: Int?,
     @Embedded @SerializedName("data")
     val data: RedditData?
-)
+) {
+    constructor(description: String) : this(
+        null, RedditData(
+            null, "New Topic", null
+            , description, null, description, 0, 0
+        )
+    )
+}

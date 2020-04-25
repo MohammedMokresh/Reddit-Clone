@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".sugarbook2.dialogs.CommentDraftDialogFragment">
+
+        <TextView
+            style="@style/text_regular_16_grey"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:gravity="center"
+            android:text="@string/are_you_sure_nyour_topic_won_t_be_saved"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e0e3ea"
+
+            />
+
+        <TextView
+            android:id="@+id/clear_draft_TextView"
+            style="@style/text_bold_16_black"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:gravity="center"
+            android:text="@string/clear_draft" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e0e3ea" />
+
+        <TextView
+            android:id="@+id/keep_editing_TextView"
+            style="@style/text_regular_16_grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:gravity="center"
+            android:text="@string/keep_editing" />
+
+
+    </LinearLayout>
+</layout>

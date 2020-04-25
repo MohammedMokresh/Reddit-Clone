@@ -26,6 +26,10 @@ class ListingViewModel(
         listingRepository.downVote(listingId)
     }
 
+    fun insertListing(children: Children) {
+        listingRepository.insertListing(children)
+    }
+
     fun insertListingInLocal() {
         return listingRepository.insertListingInLocal()
     }

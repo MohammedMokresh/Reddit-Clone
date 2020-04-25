@@ -24,9 +24,6 @@ data class RedditData(
     val subscribers: Int? = null,
 
 
-    @ColumnInfo(name = "key_color") @SerializedName("key_color")
-    val keyColor: String? = null,
-
     @ColumnInfo(name = "public_description") @SerializedName("public_description")
     val publicDescription: String? = null,
 

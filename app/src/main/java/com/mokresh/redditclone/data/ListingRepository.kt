@@ -20,7 +20,7 @@ interface ListingRepository {
 
     fun upVote(listingId: Int)
     fun downVote(listingId: Int)
-
+    fun insertListing(children: Children)
 
     open class ListingRepositoryImpl(
         private val service: ApiServices,
@@ -35,7 +35,7 @@ interface ListingRepository {
 
                 .flatMapCompletable {
                     dao.deleteListing()
-                        .andThen(insertListing(it))
+                        .andThen(insertAllListing(it))
                 }
 
                 .subscribeBy(
@@ -67,9 +67,13 @@ interface ListingRepository {
             compositeDisposable.clear()
         }
 
+        override fun insertListing(children: Children) {
+            dao.insertListing(children).subscribeOn(Schedulers.io()).subscribe()
+        }
 
-        private fun insertListing(list: List<Children>): Completable {
-            return dao.insertListing(list.map { it })
+
+        private fun insertAllListing(list: List<Children>): Completable {
+            return dao.insertAllListing(list.map { it })
         }
 
         private fun getListingFromAPI(): Single<List<Children>> =

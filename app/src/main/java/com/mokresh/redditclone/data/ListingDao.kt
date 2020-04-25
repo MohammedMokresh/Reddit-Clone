@@ -18,7 +18,11 @@ interface ListingDao {
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertListing(list: List<Children>): Completable
+    fun insertAllListing(list: List<Children>): Completable
+
+    @Transaction
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertListing(children: Children): Completable
 
     @Query("DELETE FROM listing")
     fun deleteListing(): Completable

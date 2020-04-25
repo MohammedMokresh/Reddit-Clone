@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_220sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_220sdp"
+            android:orientation="vertical"
+            android:windowSoftInputMode="adjustResize"
+            tools:context=".sugarbook2.lists.blogsNEvents.blog.comments.LeaveCommentBottomSheetFragment">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/close_ImageView"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:padding="20dp"
+                    android:src="@drawable/close_icon" />
+
+                <TextView
+                    style="@style/text_bold_16_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/close_ImageView"
+                    android:text="@string/add_topic" />
+
+                <TextView
+                    android:id="@+id/add_TextView"
+                    style="@style/text_bold_16_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/add" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/add_topic_EditText"
+                style="@style/text_regular_16_grey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_220sdp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:maxLength="255"
+                android:hint="@string/your_topic"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
