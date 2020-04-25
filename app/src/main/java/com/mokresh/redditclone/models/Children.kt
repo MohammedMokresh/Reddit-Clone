@@ -18,7 +18,7 @@ data class Children(
     constructor(description: String) : this(
         null, RedditData(
             null, "New Topic", null
-            , description, null, description, 0, 0
+            , description, 0, description, 0, 0
         )
     )
 }

@@ -50,7 +50,6 @@ class ListingAdapter(
             if (data.listingId != null) {
                 holder.binding.downVoteButton.setOnClickListener {
                     if (redditData.downVotes > 0) {
-//                        holder.binding.downVoteButton.text = (redditData.downVotes - 1).toString()
                         listener.downVoteButtonClickListener(
                             data.listingId
                             , position
@@ -58,7 +57,6 @@ class ListingAdapter(
                     }
                 }
                 holder.binding.upVoteButton.setOnClickListener {
-//                    holder.binding.upVoteButton.text = (redditData.upVotes + 1).toString()
                     listener.upVoteButtonClickListener(
                         data.listingId
                         , position
